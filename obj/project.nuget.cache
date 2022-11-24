@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "KSVxxyoEuxEARI5sTeZuLY+Ijv9RZQXR4QQSV3NwYtDqCtNgFouXglBUycn5kSJQO8/fue+68iJusbP9Kp3uGw==",
+  "dgSpecHash": "wKN0FQ3ra0mYipfXijRjft8meiCTYeC4RpM33FodoLUHcOp+QYprQdesBeDYd6b+xian5V2rwf1lwjhVUNUJHg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\stalk\\Desktop\\Симонов и Данилов ЛР3\\LW1\\LW1.csproj",
+  "projectFilePath": "C:\\Users\\stalk\\Desktop\\LW1\\LW1.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\stalk\\.nuget\\packages\\microsoft.aspnet.webapi.client\\5.2.6\\microsoft.aspnet.webapi.client.5.2.6.nupkg.sha512",
     "C:\\Users\\stalk\\.nuget\\packages\\microsoft.aspnetcore\\2.1.1\\microsoft.aspnetcore.2.1.1.nupkg.sha512",
