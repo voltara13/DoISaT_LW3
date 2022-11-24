@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using LW1.Controllers.Memory;
+using LW1.Controllers.Memory.Interfaces;
 using LW1.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,56 +12,79 @@ namespace LW1.Controllers
     [ApiController]
     public class CarsController : ControllerBase
     {
-        private static readonly IList<Car> MemCache = new List<Car>();
+        private static readonly Istorage<Car> _memCache = new MemCache();
 
         // GET api/<CarsController>
         [HttpGet]
         public ActionResult<IEnumerable<Car>> Get()
         {
-            return MemCache.ToList();
+            return Ok(_memCache.All);
         }
 
         // GET api/<CarsController>/{id}
         [HttpGet("{id}")]
-        public ActionResult<Car> Get(int id)
+        public ActionResult<Car> Get(Guid id)
         {
-            if (id < 0 || id >= MemCache.Count)
+            if (!_memCache.Has(id))
             {
-                throw new IndexOutOfRangeException("Index out of range");
+                return NotFound("No such");
             }
 
-            return MemCache[id];
+            return Ok(_memCache[id]);
         }
 
         // POST api/<CarsController>
         [HttpPost]
-        public void Post([FromBody] Car value)
+        public IActionResult Post([FromBody] Car value)
         {
-            MemCache.Add(value);
+            var validationResult = value.Validate();
+
+            if (!validationResult.IsValid)
+            {
+                return BadRequest(validationResult.Errors);
+            }
+
+            _memCache.Add(value);
+
+            return Ok($"{value.ToString()} has been added");
         }
 
         // PUT api/<CarsController>/{id}
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] Car value)
+        public IActionResult Put(Guid id, [FromBody] Car value)
         {
-            if (id < 0 || id >= MemCache.Count)
+            if (!_memCache.Has(id))
             {
-                throw new IndexOutOfRangeException("Index out of range");
+                return NotFound("No such");
             }
 
-            MemCache[id] = value;
+            var validationResult = value.Validate();
+
+            if (!validationResult.IsValid)
+            {
+                return BadRequest(validationResult.Errors);
+            }
+
+            var previousValue = _memCache[id];
+            _memCache[id] = value;
+
+            return Ok($"{previousValue.ToString()} has been updated to {value.ToString()}");
         }
 
-        // DELETE api/<CarsController>/{id}
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+            // DELETE api/<CarsController>/{id}
+            [HttpDelete("{id}")]
+        public IActionResult Delete(Guid id)
         {
-            if (id < 0 || id >= MemCache.Count)
+            if (!_memCache.Has(id))
             {
-                throw new IndexOutOfRangeException("Index out of range");
+                return NotFound("No such");
             }
 
-            MemCache.RemoveAt(id);
+            var valueToRemove = _memCache[id];
+            _memCache.RemoveAt(id);
+
+            return Ok($"{valueToRemove.ToString()} has been removed");
+
         }
     }
 }

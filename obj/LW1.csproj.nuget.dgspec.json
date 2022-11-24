@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\stalk\\Desktop\\Симонов и Данилов ЛР3\\LW1\\LW1.csproj": {}
+    "C:\\Users\\stalk\\Desktop\\LW1\\LW1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\stalk\\Desktop\\Симонов и Данилов ЛР3\\LW1\\LW1.csproj": {
+    "C:\\Users\\stalk\\Desktop\\LW1\\LW1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\stalk\\Desktop\\Симонов и Данилов ЛР3\\LW1\\LW1.csproj",
+        "projectUniqueName": "C:\\Users\\stalk\\Desktop\\LW1\\LW1.csproj",
         "projectName": "LW1",
-        "projectPath": "C:\\Users\\stalk\\Desktop\\Симонов и Данилов ЛР3\\LW1\\LW1.csproj",
+        "projectPath": "C:\\Users\\stalk\\Desktop\\LW1\\LW1.csproj",
         "packagesPath": "C:\\Users\\stalk\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\stalk\\Desktop\\Симонов и Данилов ЛР3\\LW1\\obj\\",
+        "outputPath": "C:\\Users\\stalk\\Desktop\\LW1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\stalk\\AppData\\Roaming\\NuGet\\NuGet.Config",
