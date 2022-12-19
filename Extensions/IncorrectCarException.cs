@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace LW1.Models
+namespace LW1.Extensions
 {
     public class IncorrectCarException : SystemException
     {

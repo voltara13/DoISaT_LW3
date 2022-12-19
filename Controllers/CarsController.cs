@@ -12,7 +12,12 @@ namespace LW1.Controllers
     [ApiController]
     public class CarsController : ControllerBase
     {
-        private static readonly Istorage<Car> _memCache = new MemCache();
+        private readonly IStorage<Car> _memCache;
+
+        public CarsController(IStorage<Car> memCache)
+        {
+            _memCache = memCache;
+        }
 
         // GET api/<CarsController>
         [HttpGet]
