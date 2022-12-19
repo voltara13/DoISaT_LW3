@@ -3,10 +3,11 @@ using LW1.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using LW1.Extensions;
 
 namespace LW1.Controllers.Memory
 {
-    public class MemCache : Istorage<Car>
+    public class MemCache : IStorage<Car>
     {
         private readonly object _sync = new object();
         private readonly List<Car> _memCache = new List<Car>();
